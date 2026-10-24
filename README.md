@@ -35,11 +35,18 @@ flowchart LR
 
 Load-use hazards are detected in ID (`hazard_unit`), which holds the PC and IF/ID register for one cycle and inserts a bubble into ID/EX.
 
+## Waveform highlights
+
+![Forwarding, load-use stall and branch flush](docs/pipeline_waveform.png)
+
+Captured from the simulation: EX/MEM forwarding (`forwardA = 10`), a one-cycle load-use stall (PC and IF/ID held, bubble inserted into EX), and a taken branch flushing the wrong-path instructions. The testbench also writes `cpu.vcd`, which can be opened in GTKWave.
+
 ## Repository layout
 
 ```
 rtl/cpu.v           All RTL modules (single file, top module: cpu)
-tb/tb.v             Testbench: runs the program, reports PASS/FAIL
+tb/tb.v             Testbench: runs the program, reports PASS/FAIL, dumps cpu.vcd
+docs/               Waveform figure used in this README
 tests/test.S        Self-checking RV32I assembly test program
 tests/instr_mem.hex Assembled program (loaded by the instruction memory)
 tests/run.sh        Rebuilds the hex from test.S and runs the simulation
