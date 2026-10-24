@@ -1,0 +1,4 @@
+  sim
+  t.elf
+  t.bin
+  *.vcd
