@@ -7,6 +7,8 @@ module tb;
   wire [31:0] x31 = dut.id_s.RF.regs[31];
   wire [31:0] x30 = dut.id_s.RF.regs[30];
   initial begin
+    $dumpfile("cpu.vcd");
+    $dumpvars(0, tb);
     #22 reset=0;
     repeat(3000) @(posedge clk);
     $display("TIMEOUT pc=%h x30=%0d x31=%h", dut.pc_if, x30, x31); $finish;
