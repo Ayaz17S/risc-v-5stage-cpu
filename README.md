@@ -37,7 +37,7 @@ Load-use hazards are detected in ID (`hazard_unit`), which holds the PC and IF/I
 
 ## Waveform highlights
 
-![Forwarding, load-use stall and branch flush](docs/pipeline_waveform.png)
+![Forwarding, load-use stall and branch flush](docs/image.png)
 
 Captured from the simulation: EX/MEM forwarding (`forwardA = 10`), a one-cycle load-use stall (PC and IF/ID held, bubble inserted into EX), and a taken branch flushing the wrong-path instructions. The testbench also writes `cpu.vcd`, which can be opened in GTKWave.
 
